@@ -8,7 +8,7 @@ const PASS = process.env.DB_PASS;
 console.log(USER, PASS);
 
 export default mongoose.connect(
-  `mongodb+srv://${USER}:${PASS}@cluster0.hvohahz.mongodb.net/?retryWrites=true&w=majority`
+  `mongodb+srv://${USER}:${PASS}@cluster0.hvohahz.mongodb.net/dripstore?retryWrites=true&w=majority`
 )
-.then(() => console.log('BD conectado com sucesso!'))
-.catch(error  => console.log(`Erro ao conectar ao banco: ${error}`))
+  .then(() => console.log('BD conectado com sucesso!'))
+  .catch(error => console.log(`Erro ao conectar ao banco: ${error}`))

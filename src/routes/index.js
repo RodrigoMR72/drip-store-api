@@ -1,10 +1,12 @@
 import express from "express";
 import { routerProduto } from "./produtos.route.js";
+import { generoRouter } from "./genero.routes.js";
 
-export const routes = (app) => {
-  app.get("/", (req, res) => {
-    res.send("Servidor no Ar!");
-  });
+const routes = (app) => {
+  // endpoint inicial
+  app.get("/", (req, res) =>  res.send({ msg: "Servidor rodando!", codigo: 200 }) );
 
-  app.use(express.json(), routerProduto);
+  app.use(express.json(), routerProduto, generoRouter);
 };
+
+export default routes;

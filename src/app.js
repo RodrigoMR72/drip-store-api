@@ -1,14 +1,18 @@
 import express from "express";
-import { routes } from "./routes/index.js";
+import morgan from "morgan";
+import routes from "./routes/index.js";
+import cors from "cors";
 
 const app = express();
 
-app.use(
+//https://expressjs.com/en/resources/middleware/cors.html
+app.use(cors())
+
+export default app.use(
   express.urlencoded({
     extended: true,
   })
 );
 
 routes(app)
-
-export default app
+app.use(morgan('combined'))
